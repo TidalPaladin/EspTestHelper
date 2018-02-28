@@ -70,9 +70,9 @@ public:
 	unsigned long getNumTestsRun() const { return testsRun; }
 
 	/**
-	 * @brief
+	 * @brief Gets whether a test has failed over the course of this TestHelper instance
 	 * 
-	 * @param
+	 * @return getNumTestsFailed() == 0
 	 * 
 	 */
 	bool noneFailedThisTest() const { return getNumTestsFailed() == 0; }
@@ -235,15 +235,26 @@ public:
 		return testResultRange(expected, actual, delta);
 	}
 
+	/**
+	 * @brief 	Prints information about the number of tests run / failed over the
+	 * 			lifetime of this object
+	 * 
+	 * post: Message printed with tests run / failed and an error message if one or more tests failed
+	 * 
+	 * @return	true if all tests run by this object passed at the time of the call, false otherwise
+	 */
 	bool printResult();
 
+	/**
+	 * @brief 	Prints information about the number of tests run / failed for the course of the program.
+	 * 			This information is tracked statically across TestHelper object instances
+	 * 
+	 * post: 	Message printed with tests run / failed for the entire program and an error message 
+	 * 			if one or more tests failed
+	 * 
+	 * @return	true if all tests run by this object passed at the time of the call, false otherwise
+	 */
 	static bool end();
-
-	// int randomBetween(int low, int high) {
-	//     rand()
-	// }
-
-
 
 
 private:
