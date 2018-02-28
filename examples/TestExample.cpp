@@ -1,8 +1,19 @@
 #include <Arduino.h>
-#include "TestHelper.h"
+
+#include "../src/TestHelper.h"      // Fix these before you run
+#include "../src/TestHelper.cpp"
 
 // You can change this using a preprocessor flag to redirect where test output goes
 // #define __TEST_HELPER_DEST__    Serial
+
+
+
+// The method to test
+int square(int val) {
+    return val*val;
+}
+
+
 
 
 /**
@@ -37,16 +48,16 @@ void test1() { }
 #endif
 
 
-// The method to test
-int square(int val) {
-    return val*val;
-}
+
 
 
 void setup() {
     // You still need to begin 
     Serial.begin(115200);
+    delay(1000);
     test1();
+
+    TestHelper::end();  // Print a final test report
 }
 
 void loop() {
