@@ -46,7 +46,7 @@ bool TestHelper::printResult() {
 		return true;
 	}
 	else {
-		testPrintF("%s - %s - %i subtests\n", METHOD_NAME, FAIL_TXT, testsFailed);
+		testPrintF("%s - %s - %i subtests\n", FAIL_TXT, METHOD_NAME, testsFailed);
 		return false;
 	}
 }
